@@ -1,0 +1,44 @@
+@import "@/styles/variables.scss";
+
+#SearchPage {
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
+  width: 100vw;
+
+  background: url("../../images/background.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+
+  padding: 1.35rem 3.125rem;
+
+  header {
+    font-weight: bold;
+    font-family: "Raleway", sans-serif;
+    span{
+        color: #6C63FF;
+    }
+  }
+
+  section {
+    height: fit-content;
+    margin: auto 0;
+
+    & > div {
+      h2 {
+        font-weight: bold;
+        color: $secondary-black;
+      }
+      span {
+        display: inline-block;
+        font-family: "mabry-pro";
+        max-width: 31.25rem;
+        line-height: 1.375rem;
+        margin-top: 0.8125rem;
+        margin-left: 0.1875rem;
+      }
+    }
+  }
+}
