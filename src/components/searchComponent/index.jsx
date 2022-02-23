@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles.scss";
 
 const ETH_ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+const CTA = "Validate Address";
 
 export default function Index() {
   const [searchKey, setSearchKey] = useState(null);
@@ -19,7 +20,7 @@ export default function Index() {
         />
       </aside>
       <button data-success={verificationSuccess}>
-        Validate Address
+       {CTA}
       </button>
     </div>
   );
