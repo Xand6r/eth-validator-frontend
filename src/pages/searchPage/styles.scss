@@ -1,6 +1,6 @@
 @import "@/styles/variables.scss";
 
-#SearchPage {
+.searchpage {
   display: flex;
   flex-direction: column;
 
@@ -17,17 +17,18 @@
   header {
     font-weight: bold;
     font-family: "Raleway", sans-serif;
-    span{
-        color: #6C63FF;
+    span {
+      color: #6c63ff;
     }
   }
 
   section {
     height: fit-content;
+    width: fit-content;
     margin: auto 0;
 
     & > div {
-      h2 {
+      h1 {
         font-weight: bold;
         color: $secondary-black;
       }
@@ -40,5 +41,10 @@
         margin-left: 0.1875rem;
       }
     }
+  }
+
+  &__inputwrapper {
+    width: 110%;
+    margin: 40px 0;
   }
 }

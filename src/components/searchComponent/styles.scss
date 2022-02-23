@@ -1,0 +1,78 @@
+@import "@/styles/variables.scss";
+
+.search__component {
+  position: relative;
+
+  input {
+    width: 100%;
+    font-family: "mabry-pro";
+    height: 60px;
+    padding: 25px 15px;
+    padding-right: 185px;
+    transition: $fast-transition;
+
+    &[data-success]{
+        border: 1px solid $success-green;
+        &:focus{
+            border: 1px solid $success-green;
+        }
+    }
+    &[data-success = "false"]{
+        border: 1px solid $error-red;
+        &:focus{
+            border: 1px solid $error-red;
+        }
+    }
+
+    &:focus{
+        border: 1px solid $primary-blue;
+        outline: none;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    color: white;
+    background-color: $primary-blue;
+
+    box-shadow: none;
+    border: 0px solid white;
+    cursor: pointer;
+    transition: $fast-transition;
+
+    font-family: "mabry-pro";
+    font-weight: 600;
+    font-size: 1rem;
+
+    height: 3.5rem;
+    padding: 1.25rem 1.5625rem;
+
+    &:hover {
+      box-shadow: none;
+      outline: none;
+      opacity: 0.85;
+    }
+
+    &:disabled{
+        opacity: 0.7;
+        cursor: not-allowed;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+    &:active {
+      outline: none;
+      border: 0px solid white;
+      opacity: 0.9;
+    }
+    &[data-success]{
+        background-color: $success-green;
+    }
+    &[data-success = "false"]{
+        background-color: $error-red;
+    }
+  }
+}
