@@ -43,11 +43,12 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    
 
 
     @media (max-width: $lg-breakpoint) {
       //   reduce size of background image on smaller screens
-      max-width: 100px;
+      max-width: 300px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;

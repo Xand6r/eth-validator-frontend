@@ -10,7 +10,7 @@
   background: url("../../images/background.svg");
   @media (max-width: $lg-breakpoint) {
     //   reduce size of background image on smaller screens
-    background-size: 60vh 100vw;
+    background-size: 60vh 75vw;
     background-position: bottom;
   }
 
