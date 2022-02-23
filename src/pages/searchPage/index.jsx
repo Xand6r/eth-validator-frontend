@@ -6,12 +6,15 @@ import './styles.scss';
 export default function SearchPage() {
   return (
     <div className="searchpage">
+      {/* header section */}
       <header>
         <h3>
           valid<span>Eth.</span>
         </h3>
       </header>
+      {/* header section */}
 
+      {/* content section */}
       <section>
         <div>
           <h1 data-testid="header">
@@ -26,6 +29,7 @@ export default function SearchPage() {
           </div>
         </div>
       </section>
+      {/* content section */}
     </div>
   );
 }

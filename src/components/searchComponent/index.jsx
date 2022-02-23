@@ -7,8 +7,8 @@ const BUTTON_CTA = 'Validate Address';
 
 export default function SearchComponent() {
   const [searchKey, setSearchKey] = useState('');
-  const [verificationSuccess, setVerificationSuccess] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [verificationSuccess] = useState(null);
+  const [loading] = useState(true);
 
   return (
     <div className="search__component">

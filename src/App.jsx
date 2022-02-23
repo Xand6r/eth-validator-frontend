@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import SearchPage from '@/pages/searchPage';
 
 import '@/styles/global.scss';
