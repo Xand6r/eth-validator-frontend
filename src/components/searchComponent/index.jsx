@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import Loader from "@/components/loader";
 import "./styles.scss";
 
-const ETH_ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+export const ETH_ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 const CTA = "Validate Address";
 
-export default function Index() {
-  const [searchKey, setSearchKey] = useState(null);
+export default function SearchComponent() {
+  const [searchKey, setSearchKey] = useState('');
   const [verificationSuccess, setVerificationSuccess] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   return (
     <div className="search__component">
@@ -17,10 +19,17 @@ export default function Index() {
           placeholder={`e.g ${ETH_ZERO_ADDRESS}`}
           type="text"
           data-success={verificationSuccess}
+          disabled={loading}
         />
       </aside>
-      <button data-success={verificationSuccess}>
-       {CTA}
+      <button disabled={loading} data-success={verificationSuccess}>
+        {loading ? (
+          <>
+            Validating <Loader />
+          </>
+        ) : (
+          { CTA }
+        )}
       </button>
     </div>
   );

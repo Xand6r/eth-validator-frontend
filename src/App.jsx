@@ -1,6 +1,9 @@
 import logo from './logo.svg';
-import '@/styles/global.scss';
 import SearchPage from '@/pages/searchPage';
+
+import '@/styles/global.scss';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (

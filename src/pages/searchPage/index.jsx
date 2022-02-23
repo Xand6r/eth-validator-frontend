@@ -14,14 +14,14 @@ export default function SearchPage() {
 
       <section>
         <div>
-          <h1>
+          <h1 data-testid="header">
             Validate your <br /> Ethereum address
           </h1>
           <span>
             Please input your ethereum public address, in order to ensure it is
             a valid ethereum public address.
           </span>
-          <div className="searchpage__inputwrapper">
+          <div data-testid="searchwrapper" className="searchpage__inputwrapper">
             <SearchComponent />
           </div>
         </div>
