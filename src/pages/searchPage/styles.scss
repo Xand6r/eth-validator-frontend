@@ -8,6 +8,12 @@
   width: 100vw;
 
   background: url("../../images/background.svg");
+  @media (max-width: $lg-breakpoint) {
+    //   reduce size of background image on smaller screens
+    background-size: 60vh 100vw;
+    background-position: bottom;
+  }
+
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
@@ -27,6 +33,10 @@
     width: fit-content;
     margin: auto 0;
 
+    @media (max-width: $lg-breakpoint) {
+      margin: 25% 0;
+    }
+
     & > div {
       h1 {
         font-weight: bold;
@@ -45,6 +55,9 @@
 
   &__inputwrapper {
     width: 110%;
-    margin: 40px 0;
+    margin: 2.5rem 0;
+    @media (max-width: $lg-breakpoint) {
+      width: 95%;
+    }
   }
 }

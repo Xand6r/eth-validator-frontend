@@ -7,26 +7,31 @@
     width: 100%;
     font-family: "mabry-pro";
     height: 60px;
+    @media (max-width: $lg-breakpoint) {
+      //   reduce size of background image on smaller screens
+      height: 49.5px;
+    }
     padding: 21px 15px;
     padding-right: 185px;
     transition: $fast-transition;
+    border: 1px solid $secondary-black;
 
-    &[data-success]{
+    &[data-success] {
+      border: 1px solid $success-green;
+      &:focus {
         border: 1px solid $success-green;
-        &:focus{
-            border: 1px solid $success-green;
-        }
+      }
     }
-    &[data-success = "false"]{
+    &[data-success="false"] {
+      border: 1px solid $error-red;
+      &:focus {
         border: 1px solid $error-red;
-        &:focus{
-            border: 1px solid $error-red;
-        }
+      }
     }
 
-    &:focus{
-        border: 1px solid $primary-blue;
-        outline: none;
+    &:focus {
+      border: 1px solid $primary-blue;
+      outline: none;
     }
   }
 
@@ -34,6 +39,15 @@
     position: absolute;
     top: 2px;
     right: 2px;
+
+
+    @media (max-width: $lg-breakpoint) {
+      //   reduce size of background image on smaller screens
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     color: white;
     background-color: $primary-blue;
@@ -56,23 +70,23 @@
       opacity: 0.85;
     }
 
-    &:disabled{
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      &:hover {
         opacity: 0.7;
-        cursor: not-allowed;
-        &:hover{
-            opacity: 0.7;
-        }
+      }
     }
     &:active {
       outline: none;
       border: 0px solid white;
       opacity: 0.9;
     }
-    &[data-success]{
-        background-color: $success-green;
+    &[data-success] {
+      background-color: $success-green;
     }
-    &[data-success = "false"]{
-        background-color: $error-red;
+    &[data-success="false"] {
+      background-color: $error-red;
     }
   }
 }
