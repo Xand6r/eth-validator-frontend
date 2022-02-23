@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Loader from "@/components/loader";
-import "./styles.scss";
+import React, { useState } from 'react';
+import Loader from '@/components/loader';
+import './styles.scss';
 
-export const ETH_ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
-const BUTTON_CTA = "Validate Address";
+export const ETH_ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+const BUTTON_CTA = 'Validate Address';
 
 export default function SearchComponent() {
-  const [searchKey, setSearchKey] = useState("");
+  const [searchKey, setSearchKey] = useState('');
   const [verificationSuccess, setVerificationSuccess] = useState(null);
   const [loading, setLoading] = useState(true);
 

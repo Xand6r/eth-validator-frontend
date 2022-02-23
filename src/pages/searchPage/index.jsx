@@ -1,7 +1,7 @@
-import React from "react";
-import SearchComponent from "@/components/searchComponent";
+import React from 'react';
+import SearchComponent from '@/components/searchComponent';
 
-import "./styles.scss";
+import './styles.scss';
 
 export default function SearchPage() {
   return (
@@ -18,8 +18,8 @@ export default function SearchPage() {
             Validate your <br /> Ethereum address
           </h1>
           <span>
-            Please input your ethereum public address, in order to ensure it is
-            a valid ethereum public address.
+            Please input your ethereum public address, in order to ensure it is a valid ethereum
+            public address.
           </span>
           <div data-testid="searchwrapper" className="searchpage__inputwrapper">
             <SearchComponent />
