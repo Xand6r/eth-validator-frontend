@@ -3,10 +3,10 @@ import Loader from "@/components/loader";
 import "./styles.scss";
 
 export const ETH_ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
-const CTA = "Validate Address";
+const BUTTON_CTA = "Validate Address";
 
 export default function SearchComponent() {
-  const [searchKey, setSearchKey] = useState('');
+  const [searchKey, setSearchKey] = useState("");
   const [verificationSuccess, setVerificationSuccess] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +28,7 @@ export default function SearchComponent() {
             Validating <Loader />
           </>
         ) : (
-          { CTA }
+          { BUTTON_CTA }
         )}
       </button>
     </div>
