@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import SearchComponent, { ETH_ZERO_ADDRESS } from '../index';
 
 describe('Testing The search component', () => {
-
   beforeEach(() => {
     render(<SearchComponent />);
   });

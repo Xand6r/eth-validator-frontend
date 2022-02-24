@@ -2,16 +2,40 @@
  * @descriptionA search bar component for the home page
  */
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import { postReq } from '@/api';
+
 import Loader from '@/components/loader';
+import constants from './constants';
+
 import './styles.scss';
-
-export const ETH_ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-const BUTTON_CTA = 'Validate Address';
-
 export default function SearchComponent() {
   const [searchKey, setSearchKey] = useState('');
   const [verificationSuccess] = useState(null);
-  const [loading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  /**
+   * A function to validate the address entered via the API
+   */
+  const validateAddress = () => {
+    if (loading) return;
+    setLoading(true);
+    postReq('/address/validate', {
+      address: searchKey
+    })
+      .then((res) => {
+        const { value } = res?.data || {};
+        if (!value) return toast.error('The address passed in is an incorrect ethereum address.');
+        setSearchKey('');
+        toast.success('The address passed is an incorrect ethereum address');
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="search__component">
@@ -19,19 +43,19 @@ export default function SearchComponent() {
         <input
           value={searchKey}
           onChange={(e) => setSearchKey(e.target.value)}
-          placeholder={`e.g ${ETH_ZERO_ADDRESS}`}
+          placeholder={`e.g ${constants.ETH_ZERO_ADDRESS}`}
           type="text"
           data-success={verificationSuccess}
           disabled={loading}
         />
       </aside>
-      <button disabled={loading} data-success={verificationSuccess}>
+      <button onClick={validateAddress} disabled={loading} data-success={verificationSuccess}>
         {loading ? (
           <>
             Validating <Loader />
           </>
         ) : (
-          { BUTTON_CTA }
+          constants.BUTTON_CTA
         )}
       </button>
     </div>

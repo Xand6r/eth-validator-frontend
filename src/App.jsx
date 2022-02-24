@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import SearchPage from '@/pages/searchPage';
 
 import '@/styles/global.scss';
@@ -7,6 +8,7 @@ function App() {
   return (
     <div>
       <SearchPage />
+      <ToastContainer />
     </div>
   );
 }
