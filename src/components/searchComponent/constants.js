@@ -1,4 +1,5 @@
 export default {
   ETH_ZERO_ADDRESS: '0x0000000000000000000000000000000000000000',
-  BUTTON_CTA: 'Validate Address'
+  BUTTON_CTA: 'Validate Address',
+  TIMEOUT_DURATION: 6000
 };

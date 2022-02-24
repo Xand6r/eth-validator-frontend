@@ -11,7 +11,7 @@ import constants from './constants';
 import './styles.scss';
 export default function SearchComponent() {
   const [searchKey, setSearchKey] = useState('');
-  const [verificationSuccess] = useState(null);
+  const [verificationSuccess, setVerificationSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
 
   /**
@@ -25,17 +25,28 @@ export default function SearchComponent() {
     })
       .then((res) => {
         const { value } = res?.data || {};
-        if (!value) return toast.error('The address passed in is an incorrect ethereum address.');
-        setSearchKey('');
+        if (!value) {
+          // if its an invalid address
+          setVerificationSuccess(false); //set the highlight to error
+          return toast.error('The address passed in is a correct ethereum address.');
+        }
+        // otherwise of successfull
+        setSearchKey(''); //clear search bar
+        setVerificationSuccess(true); //set success highlight
         toast.success('The address passed is an incorrect ethereum address');
       })
       .catch((err) => {
         toast.error(err.message);
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(false); //clear loader
+        // make the success or error highlight go away after time elapses
+        setTimeout(() => {
+          setVerificationSuccess(null);
+        }, constants.TIMEOUT_DURATION);
       });
   };
+  const isButtonDisabled = loading || !searchKey.length;
 
   return (
     <div className="search__component">
@@ -49,7 +60,10 @@ export default function SearchComponent() {
           disabled={loading}
         />
       </aside>
-      <button onClick={validateAddress} disabled={loading} data-success={verificationSuccess}>
+      <button
+        onClick={validateAddress}
+        disabled={isButtonDisabled}
+        data-success={verificationSuccess}>
         {loading ? (
           <>
             Validating <Loader />
