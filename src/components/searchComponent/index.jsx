@@ -1,3 +1,6 @@
+/**
+ * @descriptionA search bar component for the home page
+ */
 import React, { useState } from 'react';
 import Loader from '@/components/loader';
 import './styles.scss';
