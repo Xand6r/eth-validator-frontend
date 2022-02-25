@@ -2,6 +2,7 @@
  * @descriptionA search bar component for the home page
  */
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { postReq } from '@/api';
 
@@ -9,9 +10,15 @@ import Loader from '@/components/loader';
 import constants from './constants';
 
 import './styles.scss';
+import { setVerificationStatus } from '@/redux/slices/statusSlice';
 export default function SearchComponent() {
+  // use redux for global state management
+  const dispatch = useDispatch();
+  const { verificationSuccess } = useSelector((state) => state.status);
+  const setVerificationSuccess = (newValue) => dispatch(setVerificationStatus(newValue));
+
   const [searchKey, setSearchKey] = useState('');
-  const [verificationSuccess, setVerificationSuccess] = useState(null);
+  // const [verificationSuccess, setVerificationSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
 
   /**
@@ -28,12 +35,12 @@ export default function SearchComponent() {
         if (!value) {
           // if its an invalid address
           setVerificationSuccess(false); //set the highlight to error
-          return toast.error('The address passed in is a correct ethereum address.');
+          return toast.error('The address passed in is an incorrect ethereum address.');
         }
         // otherwise of successfull
         setSearchKey(''); //clear search bar
         setVerificationSuccess(true); //set success highlight
-        toast.success('The address passed is an incorrect ethereum address');
+        toast.success('The address passed is a correct ethereum address');
       })
       .catch((err) => {
         toast.error(err.message);

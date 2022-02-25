@@ -2,13 +2,16 @@ import React from 'react';
 import SearchComponent from '@/components/searchComponent';
 
 import './styles.scss';
+import { useSelector } from 'react-redux';
 
 export default function SearchPage() {
+  const { verificationSuccess } = useSelector((state) => state.status);
+
   return (
-    <div className="searchpage">
+    <div data-success={verificationSuccess} className="searchpage">
       {/* header section */}
       <header>
-        <h3>
+        <h3 data-success={verificationSuccess}>
           valid<span>Eth.</span>
         </h3>
       </header>

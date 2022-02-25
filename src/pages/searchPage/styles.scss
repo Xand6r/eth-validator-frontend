@@ -7,7 +7,7 @@
   height: 100vh;
   width: 100vw;
 
-  background: url("../../images/background.svg");
+  background-image: url("../../images/background.svg");
   @media (max-width: $lg-breakpoint) {
     //   reduce size of background image on smaller screens
     background-size: 60vh 75vw;
@@ -24,6 +24,7 @@
     font-weight: bold;
     font-family: "Raleway", sans-serif;
     span {
+      transform: $fast-transition;
       color: #6c63ff;
     }
   }
@@ -58,6 +59,24 @@
     margin: 2.5rem 0;
     @media (max-width: $lg-breakpoint) {
       width: 95%;
+    }
+  }
+
+  &[data-success] {
+    background-image: url("../../images/backgroundsuccess.svg");
+    header {
+      span {
+        color: $success-green;
+      }
+    }
+    
+  }
+  &[data-success="false"] {
+    background-image: url("../../images/backgrounderror.svg");
+    header {
+      span {
+        color: $error-red;
+      }
     }
   }
 }

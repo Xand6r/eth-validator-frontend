@@ -8,9 +8,9 @@ import axios from 'axios';
  * depending on if were working locally or building for deployment
  */
 const REMOTE_URL = 'https://valideth-backend.herokuapp.com';
-const LOCAL_URL = 'localhost:3000';
+// const LOCAL_URL = 'localhost:3000';
 export const BASE =
-  !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? LOCAL_URL : REMOTE_URL;
+  !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? REMOTE_URL : REMOTE_URL;
 
 /**
  * Make a post request to the server using the stored token in the database
