@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Eth Address Validator App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project can be found [live here](https://ecstatic-carson-a1fb5f.netlify.app).
 
 ## Available Scripts
 
