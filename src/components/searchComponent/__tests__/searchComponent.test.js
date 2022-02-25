@@ -1,10 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import SearchComponent from '../index';
 import constants from '../constants';
 
+import store from '@/redux/store';
+
 describe('Testing The search component', () => {
   beforeEach(() => {
-    render(<SearchComponent />);
+    render(
+      <Provider store={store}>
+        <SearchComponent />
+      </Provider>
+    );
   });
 
   test('It should render an input element', () => {
