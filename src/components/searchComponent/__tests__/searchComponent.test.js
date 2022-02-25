@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import SearchComponent, { ETH_ZERO_ADDRESS } from '../index';
+import SearchComponent from '../index';
+import constants from '../constants';
 
 describe('Testing The search component', () => {
   beforeEach(() => {
@@ -7,7 +8,7 @@ describe('Testing The search component', () => {
   });
 
   test('It should render an input element', () => {
-    const inputElement = screen.getByPlaceholderText(`e.g ${ETH_ZERO_ADDRESS}`);
+    const inputElement = screen.getByPlaceholderText(`e.g ${constants.ETH_ZERO_ADDRESS}`);
     expect(inputElement).toBeInTheDocument();
   });
 
@@ -18,7 +19,7 @@ describe('Testing The search component', () => {
 
   test('It should be able to type in input', () => {
     const SAMPLE_ADDRESS = '0x12345678';
-    const inputElement = screen.getByPlaceholderText(`e.g ${ETH_ZERO_ADDRESS}`);
+    const inputElement = screen.getByPlaceholderText(`e.g ${constants.ETH_ZERO_ADDRESS}`);
     fireEvent.change(inputElement, { target: { value: SAMPLE_ADDRESS } });
     expect(inputElement.value).toBe(SAMPLE_ADDRESS);
   });
